@@ -1,0 +1,135 @@
+{% extends 'master.html' %}
+
+{% block title %}My Tasks | TaskFlow{% endblock %}
+
+{% block content %}
+<div class="task-container">
+    <div class="dashboard-card">
+        <div class="header-section">
+            <h2>My Tasks</h2>
+            <span class="task-counter">{{ tasks|length }} {% if tasks|length == 1 %}Task{% else %}Tasks{% endif %}</span>
+        </div>
+
+        <!-- Task Create Form -->
+        <form method="POST" class="task-form">
+            {% csrf_token %}
+            <input 
+                type="text" 
+                name="task_title" 
+                class="task-input" 
+                placeholder="Enter Your Task" 
+                required 
+                autocomplete="off"
+            >
+            <button type="submit" class="btn-add">Add Task</button>
+        </form>
+
+        <!-- Tasks Items List -->
+        <ul class="task-items-list">
+            {% for task in tasks %}
+                <li class="task-row">
+                    <span class="task-title">
+                        {{ task.title }}                        
+                    </span>
+                    <!-- Open confirmation popup button -->
+                    <button 
+                        type="button" 
+                        class="btn-trigger-delete"
+                        data-task-title="{{ task.title }}"
+                        data-delete-url="{% url 'delete_task' task.id %}"
+                        style="background-color: rgb(161, 246, 169); padding: 5px 12px; color: rgb(0, 0, 0); border: none; border-radius: 8px; font-size: 0.92rem; font-weight: 600; font-family: inherit; cursor: pointer; transition: background-color 0.2s ease, transform 0.1s ease;">
+                        Done
+                    </button>
+                </li>
+            {% empty %}
+                <li class="empty-state">
+                    <span class="empty-icon">📋</span>
+                    No tasks yet. Add your first task above!
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<!-- Reusable Delete Modal Dialog -->
+
+    <dialog id="deleteConfirmDialog" class="confirm-dialog" style="align-self: center;">
+        <div class="dialog-content">
+            <h3 style="margin-top: 0; font-size: 1.25rem;">Confirm Completion</h3>
+            <p id="deleteDialogText" style="color: #4b5563; font-size: 0.95rem; margin: 12px 0 20px;">
+                Are you sure you want to mark this task as done and remove it?
+            </p>
+
+        <form id="confirmDeleteForm" method="POST" action="">
+            {% csrf_token %}
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                <button 
+                    type="button" 
+                    id="cancelDialogBtn"
+                    style="padding: 7px 14px; background: #e5e7eb; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">
+                    Cancel
+                </button>
+                <button 
+                    type="submit" 
+                    style="padding: 7px 14px; background: #ef4444; color: #fff; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">
+                    Yes, Complete
+                </button>
+            </div>
+        </form>
+    </div>
+</dialog>
+
+<!-- Minimal Modal Styling -->
+  
+<style>
+    .confirm-dialog {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        padding: 24px;
+        width: 90%;
+        max-width: 420px;
+        font-family: inherit;
+        margin-left: 40%;
+        margin-bottom: 10%;
+    }
+    .confirm-dialog::backdrop {
+        background-color: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(2px);
+    }
+</style>
+
+<!-- Modal Handling Script -->
+<script>
+    const dialog = document.getElementById('deleteConfirmDialog');
+    const deleteForm = document.getElementById('confirmDeleteForm');
+    const dialogText = document.getElementById('deleteDialogText');
+    const cancelBtn = document.getElementById('cancelDialogBtn');
+
+    // Attach click listeners to all delete triggers
+    document.querySelectorAll('.btn-trigger-delete').forEach(button => {
+        button.addEventListener('click', () => {
+            const taskTitle = button.dataset.taskTitle;
+            const deleteUrl = button.dataset.deleteUrl;
+
+            // Update modal text and form action dynamically
+            dialogText.innerHTML = `Are you sure you want to complete and remove <strong>"${taskTitle}"</strong>?`;
+            deleteForm.setAttribute('action', deleteUrl);
+
+            dialog.showModal();
+        });
+    });
+
+    // Close button handler
+    cancelBtn.addEventListener('click', () => {
+        dialog.close();
+    });
+
+    // Close if user clicks outside the modal dialog box
+    dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) {
+            dialog.close();
+        }
+    });
+</script>
+{% endblock %}

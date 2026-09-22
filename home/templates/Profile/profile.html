@@ -1,0 +1,62 @@
+{% extends 'master.html' %}
+
+{% block title %}User Profile | TaskFlow{% endblock %}
+
+{% block content %}
+
+
+<div class="profile-wrapper">
+    <div class="profile-card">
+        <!-- Avatar -->
+        <div class="avatar-wrapper">
+            <div class="avatar-circle">
+                {{ request.user.username|slice:":1" }}
+            </div>
+        </div>
+
+        <h2>{{ request.user.username }}</h2>
+
+        <!-- User Information Details -->
+        <div class="info-list">
+            <div class="info-row">
+                <span class="info-label">Email</span>
+                <span class="info-value">{{ request.user.profile.email|default:"No email set" }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Mobile</span>
+                <span class="info-value">{{ request.user.profile.number|default:"Not available" }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Address</span>
+                <span class="info-value">{{ request.user.profile.address|default:"Not available" }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Gender</span>
+                <span class="info-value">{{ request.user.profile.gender|default:"Not available" }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Date of Birth</span>
+                <span class="info-value">{{ request.user.profile.dob|date:"M d, Y"|default:"Not set" }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Age</span>
+                <span class="info-value">{{ request.user.profile.age|default:"Not set" }}</span>
+            </div>
+        </div>
+
+        <!-- Task Statistics Counters -->
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">{{ total_tasks }}</div>
+                <div class="stat-label">Total Tasks</div>
+            </div>
+        </div>
+
+        <!-- Quick Action Buttons -->
+        <div class="actions-group">
+            <a href="{% url 'update_profile' %}" class="profile-btn btn-update">Update Profile</a>
+            <a href="{% url 'logout' %}" class="profile-btn btn-logout">Log Out</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

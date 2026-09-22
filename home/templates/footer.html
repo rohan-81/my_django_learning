@@ -1,0 +1,25 @@
+{% load static %}
+<footer class="app-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <span class="footer-logo">TaskFlow</span>
+            <p class="footer-tagline">Organize your daily tasks simply and effectively.</p>
+        </div>
+
+        <ul class="footer-links">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/setting">Setting</a></li>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; ; {% now "Y" %} TaskFlow. Built with Django.</p>
+    </div>
+</footer>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
