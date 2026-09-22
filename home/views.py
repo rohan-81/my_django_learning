@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 from datetime import datetime
 
 # Create your views here.
+# Learning Git
+
 def login_page(request):
     if request.method == "POST":
         email = request.POST.get('email')
@@ -160,6 +162,7 @@ def delete_task(request,task_id):
         user = request.user
         task=get_object_or_404(Task, id=task_id, user=user)
         task.delete()
+        task.save()
         return redirect('home')
 
 login_required(login_url='login')
