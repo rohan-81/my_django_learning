@@ -174,7 +174,6 @@ def delete_task(request,task_id):
         user = request.user
         task=get_object_or_404(Task, id=task_id, user=user)
         task.delete()
-        task.save()
         return redirect('home')
 
 login_required(login_url='login')
