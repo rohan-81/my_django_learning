@@ -1,0 +1,366 @@
+[1mdiff --git a/home/static/css/style.css b/home/static/css/style.css[m
+[1mindex e46ae4e..7c1bf19 100644[m
+[1m--- a/home/static/css/style.css[m
+[1m+++ b/home/static/css/style.css[m
+[36m@@ -181,6 +181,7 @@[m [mnav ul li a.nav-highlight:hover {[m
+         flex-direction: column;[m
+         text-align: center;[m
+     }[m
+[32m+[m
+     .footer-links {[m
+         justify-content: center;[m
+     }[m
+[36m@@ -236,7 +237,7 @@[m [mnav ul li a.nav-highlight:hover {[m
+     text-align: center;[m
+ }[m
+ [m
+[31m-.success-alert{[m
+[32m+[m[32m.success-alert {[m
+     background-color: var(--danger-light);[m
+     border: 1px solid #42e16a;[m
+     color: var(--success);[m
+[36m@@ -248,45 +249,52 @@[m [mnav ul li a.nav-highlight:hover {[m
+     text-align: center;[m
+ }[m
+ [m
+[31m-.brand-header, .card-header {[m
+[32m+[m[32m.brand-header,[m
+[32m+[m[32m.card-header {[m
+     text-align: center;[m
+     margin-bottom: 28px;[m
+ }[m
+ [m
+[31m-.brand-header h2, .card-header h2 {[m
+[32m+[m[32m.brand-header h2,[m
+[32m+[m[32m.card-header h2 {[m
+     font-size: 1.5rem;[m
+     font-weight: 700;[m
+     color: var(--text-main);[m
+     letter-spacing: -0.5px;[m
+ }[m
+ [m
+[31m-.brand-header p, .card-header p {[m
+[32m+[m[32m.brand-header p,[m
+[32m+[m[32m.card-header p {[m
+     color: var(--text-muted);[m
+     font-size: 0.88rem;[m
+     margin-top: 6px;[m
+ }[m
+ [m
+[31m-.footer-note, .signup-link-box {[m
+[32m+[m[32m.footer-note,[m
+[32m+[m[32m.signup-link-box {[m
+     text-align: center;[m
+     margin-top: 24px;[m
+     font-size: 0.88rem;[m
+     color: var(--text-muted);[m
+ }[m
+ [m
+[31m-.footer-note a, .signup-link-box a {[m
+[32m+[m[32m.footer-note a,[m
+[32m+[m[32m.signup-link-box a {[m
+     color: var(--primary);[m
+     font-weight: 600;[m
+     text-decoration: none;[m
+ }[m
+ [m
+[31m-.footer-note a:hover, .signup-link-box a:hover {[m
+[32m+[m[32m.footer-note a:hover,[m
+[32m+[m[32m.signup-link-box a:hover {[m
+     text-decoration: underline;[m
+ }[m
+ [m
+ /* ==========================================================================[m
+    5. AUTH PAGES (login.html & sign-up.html)[m
+    ========================================================================== */[m
+[31m-.login-container, .signup-container {[m
+[32m+[m[32m.login-container,[m
+[32m+[m[32m.signup-container {[m
+     display: flex;[m
+     align-items: center;[m
+     justify-content: center;[m
+[36m@@ -294,7 +302,8 @@[m [mnav ul li a.nav-highlight:hover {[m
+     padding: 20px 0;[m
+ }[m
+ [m
+[31m-.login-card, .signup-card {[m
+[32m+[m[32m.login-card,[m
+[32m+[m[32m.signup-card {[m
+     width: 100%;[m
+     max-width: 420px;[m
+     background: var(--surface);[m
+[36m@@ -304,7 +313,8 @@[m [mnav ul li a.nav-highlight:hover {[m
+     border: 1px solid var(--border);[m
+ }[m
+ [m
+[31m-.btn-login, .btn-submit {[m
+[32m+[m[32m.btn-login,[m
+[32m+[m[32m.btn-submit {[m
+     width: 100%;[m
+     padding: 12px;[m
+     margin-top: 8px;[m
+[36m@@ -319,25 +329,76 @@[m [mnav ul li a.nav-highlight:hover {[m
+     transition: background-color 0.2s ease, transform 0.1s ease;[m
+ }[m
+ [m
+[31m-.btn-login:hover, .btn-submit:hover {[m
+[32m+[m[32m.btn-login:hover,[m
+[32m+[m[32m.btn-submit:hover {[m
+     background-color: var(--primary-hover);[m
+ }[m
+ [m
+[31m-.btn-login:active, .btn-submit:active {[m
+[32m+[m[32m.btn-login:active,[m
+[32m+[m[32m.btn-submit:active {[m
+     transform: scale(0.99);[m
+ }[m
+ [m
+ /* ==========================================================================[m
+    6. PROFILE PAGES (profile.html & update_profile.html)[m
+    ========================================================================== */[m
+[31m-.profile-wrapper, .update-container {[m
+[32m+[m[32m/* Gender Dropdown - Match Text Inputs */[m
+[32m+[m[32m.form-group select#gen,[m
+[32m+[m[32mselect.form-control {[m
+[32m+[m[32m    width: 100% !important;[m
+[32m+[m[32m    padding: 10px 14px !important;[m
+[32m+[m[32m    font-size: 0.92rem !important;[m
+[32m+[m[32m    color: #0f172a !important;[m
+[32m+[m[32m    background-color: #ffffff !important;[m
+[32m+[m[32m    border: 1px solid #e2e8f0 !important;[m
+[32m+[m[32m    border-radius: 8px !important;[m
+[32m+[m[32m    outline: none !important;[m
+[32m+[m[32m    box-sizing: border-box !important;[m
+[32m+[m[32m    font-family: inherit !important;[m
+[32m+[m[32m    cursor: pointer !important;[m
+[32m+[m
+[32m+[m[32m    /* જૂના ડિફોલ્ટ એરોને હટાવવા */[m
+[32m+[m[32m    -webkit-appearance: none !important;[m
+[32m+[m[32m    -moz-appearance: none !important;[m
+[32m+[m[32m    appearance: none !important;[m
+[32m+[m
+[32m+[m[32m    /* સુંદર કસ્ટમ ડ્રોપડાઉન એરો આઇકન */[m
+[32m+[m[32m    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E") !important;[m
+[32m+[m[32m    background-repeat: no-repeat !important;[m
+[32m+[m[32m    background-position: right 14px center !important;[m
+[32m+[m[32m    background-size: 16px !important;[m
+[32m+[m[32m    padding-right: 40px !important;[m
+[32m+[m[32m    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m/* જ્યારે ડ્રોપડાઉન પર ક્લિક/ફોકસ થાય ત્યારે */[m
+[32m+[m[32m.form-group select#gen:focus,[m
+[32m+[m[32mselect.form-control:focus {[m
+[32m+[m[32m    border-color: #4f46e5 !important;[m
+[32m+[m[32m    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15) !important;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m/* ડિફોલ્ટ 'Select Gender' ઓપ્શન ગ્રે દેખાય તે માટે */[m
+[32m+[m[32m.form-group select#gen option[value=""] {[m
+[32m+[m[32m    color: #94a3b8;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-group select#gen option {[m
+[32m+[m[32m    color: #0f172a;[m
+[32m+[m[32m    padding: 8px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+[32m+[m[32m.profile-wrapper,[m
+[32m+[m[32m.update-container {[m
+     display: flex;[m
+     justify-content: center;[m
+     align-items: center;[m
+     padding: 20px 0;[m
+ }[m
+ [m
+[31m-.profile-card, .update-card {[m
+[32m+[m[32m.profile-card,[m
+[32m+[m[32m.update-card {[m
+     width: 100%;[m
+     max-width: 480px;[m
+     background: var(--surface);[m
+[36m@@ -448,12 +509,14 @@[m [mnav ul li a.nav-highlight:hover {[m
+     margin-top: 4px;[m
+ }[m
+ [m
+[31m-.actions-group, .btn-group {[m
+[32m+[m[32m.actions-group,[m
+[32m+[m[32m.btn-group {[m
+     display: flex;[m
+     gap: 12px;[m
+ }[m
+ [m
+[31m-.profile-btn, .btn-cancel {[m
+[32m+[m[32m.profile-btn,[m
+[32m+[m[32m.btn-cancel {[m
+     flex: 1;[m
+     display: inline-flex;[m
+     align-items: center;[m
+[1mdiff --git a/home/templates/Profile/update_profile.html b/home/templates/Profile/update_profile.html[m
+[1mindex 293f551..f0cf1ae 100644[m
+[1m--- a/home/templates/Profile/update_profile.html[m
+[1m+++ b/home/templates/Profile/update_profile.html[m
+[36m@@ -17,49 +17,63 @@[m
+         </div>[m
+         {% endif %}[m
+ [m
+[31m-[m
+[31m-[m
+         <form method="POST">[m
+             {% csrf_token %}[m
+ [m
+             <div class="form-group">[m
+                 <label for="username">Username</label>[m
+[31m-                <input type="text" id="username" name="username" value="{{ request.user.username }}" required[m
+[31m-                    autocomplete="username">[m
+[32m+[m[32m                <input type="text" id="username" name="username" value="{{ request.user.username }}" required autocomplete="username">[m
+             </div>[m
+ [m
+             <div class="form-group">[m
+                 <label for="email">Email Address</label>[m
+[31m-                <input type="email" id="email" name="email" value="{{ request.user.email }}"[m
+[31m-                    placeholder="name@example.com" autocomplete="email">[m
+[32m+[m[32m                <input type="email" id="email" name="email" value="{{ request.user.email }}" placeholder="name@example.com" autocomplete="email">[m
+             </div>[m
+ [m
+             <div class="form-group">[m
+[31m-                <label for="number"></label>Address</label>[m
+[31m-                <input type="text" id="address" name="address" value="{{ request.user.profile.address }}"[m
+[31m-                    placeholder="enter your new address" required>[m
+[32m+[m[32m                <label for="address">Address</label>[m
+[32m+[m[32m                <input type="text" id="address" name="address" value="{{ request.user.profile.address|default:'' }}" placeholder="enter your address" required>[m
+             </div>[m
+ [m
+             <div class="form-group">[m
+                 <label for="gen">Gender</label>[m
+[31m-                <input type="text" id="gen" name="gen" value="{{ request.user.profile.gender }}" disabled>[m
+[32m+[m[32m                {% if request.user.profile.gender %}[m
+[32m+[m[32m                    <input type="text" id="gen" name="gen"[m[41m [m
+[32m+[m[32m                           value="{{ request.user.profile.gender }}"[m[41m [m
+[32m+[m[32m                           readonly class="field-locked">[m
+[32m+[m[32m                {% else %}[m
+[32m+[m[32m                    <select id="gen" name="gen" class="form-control" required>[m
+[32m+[m[32m                        <option value="" disabled selected>Select Gender</option>[m
+[32m+[m[32m                        <option value="Male">Male</option>[m
+[32m+[m[32m                        <option value="Female">Female</option>[m
+[32m+[m[32m                        <option value="Other">Other</option>[m
+[32m+[m[32m                    </select>[m
+[32m+[m[32m                {% endif %}[m
+             </div>[m
+ [m
+[32m+[m
+             <div class="form-group">[m
+                 <label for="dob">Date of Birth</label>[m
+[31m-                <!-- HTML5 date pickers require strict YYYY-MM-DD format to show existing value -->[m
+[31m-                <input type="text" id="dob" name="dob" value="{{ request.user.profile.dob }}" disabled>[m
+[32m+[m[32m                <input type="{% if request.user.profile.dob %}text{% else %}date{% endif %}"[m[41m [m
+[32m+[m[32m                       id="dob" name="dob"[m[41m [m
+[32m+[m[32m                       value="{{ request.user.profile.dob|date:'Y-m-d'|default:'' }}"[m[41m [m
+[32m+[m[32m                       {% if request.user.profile.dob %}readonly class="field-locked"{% endif %}>[m
+             </div>[m
+ [m
+             <div class="form-group">[m
+                 <label for="number">Phone Number</label>[m
+[31m-                <input type="tel" id="number" name="number" value="{{ request.user.profile.number|default:'' }}"[m
+[31m-                    placeholder="e.g. 9876543210" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'')">[m
+[32m+[m[32m                <input type="tel" id="number" name="number"[m[41m [m
+[32m+[m[32m                       value="{{ request.user.profile.number|default:'' }}"[m[41m [m
+[32m+[m[32m                       placeholder="e.g. 9876543210" maxlength="10"[m[41m [m
+[32m+[m[32m                       oninput="this.value=this.value.replace(/[^0-9]/g,'')">[m
+             </div>[m
+ [m
+[32m+[m
+             <div class="form-group">[m
+[31m-                <label for="number">Age</label>[m
+[31m-                <input type="number" id="age" name="age" value="{{ request.user.profile.age|default:'' }}" disabled>[m
+[32m+[m[32m                <label for="age">Age</label>[m
+[32m+[m[32m                <input type="number" id="age" name="age"[m[41m [m
+[32m+[m[32m                       value="{{ request.user.profile.age|default:'' }}"[m[41m [m
+[32m+[m[32m                       placeholder="Calculated automatically While Save Changes" readonly class="field-locked">[m
+             </div>[m
+ [m
+             <div class="btn-group">[m
+[36m@@ -69,4 +83,5 @@[m
+         </form>[m
+     </div>[m
+ </div>[m
+[32m+[m
+ {% endblock %}[m
+\ No newline at end of file[m
+[1mdiff --git a/home/views.py b/home/views.py[m
+[1mindex 654cd5a..f1df8e8 100644[m
+[1m--- a/home/views.py[m
+[1m+++ b/home/views.py[m
+[36m@@ -4,7 +4,7 @@[m [mfrom django.shortcuts import get_object_or_404[m
+ from django.contrib.auth.models import User[m
+ from django.contrib.auth import authenticate, login[m
+ from django.contrib.auth.decorators import login_required[m
+[31m-from datetime import datetime[m
+[32m+[m[32mfrom datetime import date,datetime[m
+ [m
+ # Create your views here.[m
+ # Learning Git[m
+[36m@@ -104,24 +104,23 @@[m [mdef home_page(request):[m
+ def profile_page(request):[m
+     total_tasks = Task.objects.filter(user=request.user).count()[m
+ [m
+[31m-    profile=UserProfile.objects.get(user=request.user)[m
+[31m-    thisyear=datetime.now().strftime("%Y")[m
+[31m-[m
+[31m-[m
+[31m-    print(thisyear)[m
+[31m-    age=int(thisyear)-int(profile.dob.year)[m
+[31m-    print(int(profile.dob.year))[m
+[31m-    profile.age=age[m
+[31m-    profile.save()[m
+[32m+[m[32m    # Safely retrieve or create the profile[m
+[32m+[m[32m    profile, created = UserProfile.objects.get_or_create(user=request.user)[m
+ [m
+[32m+[m[32m    # Calculate age only if dob is populated[m
+[32m+[m[32m    if profile.dob:[m
+[32m+[m[32m        today = date.today()[m
+[32m+[m[32m        # Precise age calculation considering month and day[m
+[32m+[m[32m        age = today.year - profile.dob.year - ((today.month, today.day) < (profile.dob.month, profile.dob.day))[m
+[32m+[m[32m        profile.age = age[m
+[32m+[m[32m        profile.save()[m
+ [m
+     context = {[m
+[31m-        'total_tasks': total_tasks[m
+[32m+[m[32m        'total_tasks': total_tasks,[m
+[32m+[m[32m        'profile': profile,[m
+     }[m
+     return render(request, 'Profile/profile.html', context)[m
+ [m
+[31m-[m
+[31m-[m
+ @login_required(login_url='login')[m
+ def update_profile(request):[m
+     user = request.user[m
+[36m@@ -132,6 +131,9 @@[m [mdef update_profile(request):[m
+         new_email = request.POST.get('email').strip()[m
+         new_number = request.POST.get('number')[m
+         new_address = request.POST.get('address')[m
+[32m+[m[32m        new_gender = request.POST.get('gen')[m
+[32m+[m[32m        new_dob = request.POST.get('dob')[m
+[32m+[m[41m        [m
+         [m
+         # Check if username is taken by another user[m
+         if User.objects.filter(username=new_username).exclude(id=user.id).exists():[m
+[36m@@ -144,6 +146,16 @@[m [mdef update_profile(request):[m
+                 profile.number = new_number[m
+             else:[m
+                 new_number = profile.number[m
+[32m+[m[32m            if new_gender :[m
+[32m+[m[32m                profile.gender = new_gender[m
+[32m+[m[32m            else :[m
+[32m+[m[32m                profile.gen=profile.gen[m
+[32m+[m[32m            if new_dob:[m
+[32m+[m[32m                profile.dob = new_dob[m
+[32m+[m[32m            else:[m
+[32m+[m[32m                profile.dob=profile.dob[m
+[32m+[m[41m                [m
+[32m+[m
+ [m
+             user.username = new_username[m
+             user.email = new_email[m

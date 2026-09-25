@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from datetime import datetime
+from datetime import date,datetime
 
 # Create your views here.
 # Learning Git
@@ -104,23 +104,22 @@ def home_page(request):
 def profile_page(request):
     total_tasks = Task.objects.filter(user=request.user).count()
 
-    profile=UserProfile.objects.get(user=request.user)
-    thisyear=datetime.now().strftime("%Y")
+    # Safely retrieve or create the profile
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
 
-
-    print(thisyear)
-    age=int(thisyear)-int(profile.dob.year)
-    print(int(profile.dob.year))
-    profile.age=age
-    profile.save()
-
+    # Calculate age only if dob is populated
+    if profile.dob:
+        today = date.today()
+        # Precise age calculation considering month and day
+        age = today.year - profile.dob.year - ((today.month, today.day) < (profile.dob.month, profile.dob.day))
+        profile.age = age
+        profile.save()
 
     context = {
-        'total_tasks': total_tasks
+        'total_tasks': total_tasks,
+        'profile': profile,
     }
     return render(request, 'Profile/profile.html', context)
-
-
 
 @login_required(login_url='login')
 def update_profile(request):
@@ -132,6 +131,9 @@ def update_profile(request):
         new_email = request.POST.get('email').strip()
         new_number = request.POST.get('number')
         new_address = request.POST.get('address')
+        new_gender = request.POST.get('gen')
+        new_dob = request.POST.get('dob')
+        
         
         # Check if username is taken by another user
         if User.objects.filter(username=new_username).exclude(id=user.id).exists():
@@ -144,6 +146,16 @@ def update_profile(request):
                 profile.number = new_number
             else:
                 new_number = profile.number
+            if new_gender :
+                profile.gender = new_gender
+            else :
+                profile.gen=profile.gen
+            if new_dob:
+                profile.dob = new_dob
+            else:
+                profile.dob=profile.dob
+                
+
 
             user.username = new_username
             user.email = new_email

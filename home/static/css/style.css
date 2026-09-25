@@ -181,6 +181,7 @@ nav ul li a.nav-highlight:hover {
         flex-direction: column;
         text-align: center;
     }
+
     .footer-links {
         justify-content: center;
     }
@@ -236,7 +237,7 @@ nav ul li a.nav-highlight:hover {
     text-align: center;
 }
 
-.success-alert{
+.success-alert {
     background-color: var(--danger-light);
     border: 1px solid #42e16a;
     color: var(--success);
@@ -248,45 +249,52 @@ nav ul li a.nav-highlight:hover {
     text-align: center;
 }
 
-.brand-header, .card-header {
+.brand-header,
+.card-header {
     text-align: center;
     margin-bottom: 28px;
 }
 
-.brand-header h2, .card-header h2 {
+.brand-header h2,
+.card-header h2 {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-main);
     letter-spacing: -0.5px;
 }
 
-.brand-header p, .card-header p {
+.brand-header p,
+.card-header p {
     color: var(--text-muted);
     font-size: 0.88rem;
     margin-top: 6px;
 }
 
-.footer-note, .signup-link-box {
+.footer-note,
+.signup-link-box {
     text-align: center;
     margin-top: 24px;
     font-size: 0.88rem;
     color: var(--text-muted);
 }
 
-.footer-note a, .signup-link-box a {
+.footer-note a,
+.signup-link-box a {
     color: var(--primary);
     font-weight: 600;
     text-decoration: none;
 }
 
-.footer-note a:hover, .signup-link-box a:hover {
+.footer-note a:hover,
+.signup-link-box a:hover {
     text-decoration: underline;
 }
 
 /* ==========================================================================
    5. AUTH PAGES (login.html & sign-up.html)
    ========================================================================== */
-.login-container, .signup-container {
+.login-container,
+.signup-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -294,7 +302,8 @@ nav ul li a.nav-highlight:hover {
     padding: 20px 0;
 }
 
-.login-card, .signup-card {
+.login-card,
+.signup-card {
     width: 100%;
     max-width: 420px;
     background: var(--surface);
@@ -304,7 +313,8 @@ nav ul li a.nav-highlight:hover {
     border: 1px solid var(--border);
 }
 
-.btn-login, .btn-submit {
+.btn-login,
+.btn-submit {
     width: 100%;
     padding: 12px;
     margin-top: 8px;
@@ -319,25 +329,76 @@ nav ul li a.nav-highlight:hover {
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.btn-login:hover, .btn-submit:hover {
+.btn-login:hover,
+.btn-submit:hover {
     background-color: var(--primary-hover);
 }
 
-.btn-login:active, .btn-submit:active {
+.btn-login:active,
+.btn-submit:active {
     transform: scale(0.99);
 }
 
 /* ==========================================================================
    6. PROFILE PAGES (profile.html & update_profile.html)
    ========================================================================== */
-.profile-wrapper, .update-container {
+/* Gender Dropdown - Match Text Inputs */
+.form-group select#gen,
+select.form-control {
+    width: 100% !important;
+    padding: 10px 14px !important;
+    font-size: 0.92rem !important;
+    color: #0f172a !important;
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+    cursor: pointer !important;
+
+    /* જૂના ડિફોલ્ટ એરોને હટાવવા */
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+
+    /* સુંદર કસ્ટમ ડ્રોપડાઉન એરો આઇકન */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 14px center !important;
+    background-size: 16px !important;
+    padding-right: 40px !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* જ્યારે ડ્રોપડાઉન પર ક્લિક/ફોકસ થાય ત્યારે */
+.form-group select#gen:focus,
+select.form-control:focus {
+    border-color: #4f46e5 !important;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15) !important;
+}
+
+/* ડિફોલ્ટ 'Select Gender' ઓપ્શન ગ્રે દેખાય તે માટે */
+.form-group select#gen option[value=""] {
+    color: #94a3b8;
+}
+
+.form-group select#gen option {
+    color: #0f172a;
+    padding: 8px;
+}
+
+
+.profile-wrapper,
+.update-container {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px 0;
 }
 
-.profile-card, .update-card {
+.profile-card,
+.update-card {
     width: 100%;
     max-width: 480px;
     background: var(--surface);
@@ -448,12 +509,14 @@ nav ul li a.nav-highlight:hover {
     margin-top: 4px;
 }
 
-.actions-group, .btn-group {
+.actions-group,
+.btn-group {
     display: flex;
     gap: 12px;
 }
 
-.profile-btn, .btn-cancel {
+.profile-btn,
+.btn-cancel {
     flex: 1;
     display: inline-flex;
     align-items: center;
